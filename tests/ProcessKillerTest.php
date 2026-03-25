@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Hibla\Parallel\Utilities\ProcessKiller;
+use Rcalicdan\ProcessKiller\ProcessKiller;
 use Tests\Fixtures\ProcessFixture;
 
 describe('ProcessKiller', function () {
