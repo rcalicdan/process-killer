@@ -32,7 +32,13 @@ final class ProcessFixture
     {
         exec("ps -p {$pid} -o state= 2>/dev/null", $output, $code);
 
-        return $code === 0 && ! empty($output) && trim($output[0]) !== 'Z';
+        if ($code !== 0 || empty($output)) {
+            return false;
+        }
+
+        $state = trim($output[0]);
+
+        return $state !== '' && ! str_starts_with($state, 'Z');
     }
 
     private static function isRunningWindows(int $pid): bool
