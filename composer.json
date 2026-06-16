@@ -1,7 +1,14 @@
 {
     "name": "rcalicdan/process-killer",
+    "description": "A PHP library for killing processes and their children",
     "type": "library",
-    "license": "mit",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Reymart A. Calicdan",
+            "email": "reymart.calicdan06@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Rcalicdan\\ProcessKiller\\": "src/"
@@ -12,16 +19,23 @@
             "Tests\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "^8.3"
     },
     "require-dev": {
-        "pestphp/pest": "^4.0"
+        "pestphp/pest": "^4.0",
+        "phpstan/phpstan": "^2.1",
+        "laravel/pint": "^1.25"
     },
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "analyze": "vendor/bin/phpstan analyse",
+        "format": "vendor/bin/pint"
     }
 }
